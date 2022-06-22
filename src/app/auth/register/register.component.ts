@@ -11,26 +11,41 @@ import { AuthService } from '../auth.service';
 export class RegisterComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
-  users: User[] = [];
+  formData: any = {};
+  errors: any = [];
 
-  user: User = {
-    id: null,
-    username: 'Add your username',
-    email: 'Add your email',
-    password: 'Add your password',
-  };
+  // users: User[] = [];
+
+  // user: User = {
+  //   id: null,
+  //   username: 'Add your username',
+  //   email: 'Add your email',
+  //   password: 'Add your password',
+  // };
 
   ngOnInit(): void {
-    this.authService.getUser().subscribe((result) => {
-      this.users = result;
-    });
+    // this.authService.getUser().subscribe((result) => {
+    //   this.users = result;
+    // });
   }
 
   register(): void {
-    this.authService.addUser(this.user).subscribe(() => {
-      this.router.navigate(['/auth/login'], {
-        queryParams: { registered: 'success' },
-      });
+    console.log(this.formData);
+    this.errors = [];
+    this.authService.register(this.formData).subscribe({
+      next: () =>
+        this.router.navigate(['/auth/login'], {
+          queryParams: { registered: 'success' },
+        }),
+      error: (errorResponse) => {
+        this.errors.push(errorResponse.error.error);
+      },
+      complete: () => console.info('complete'),
     });
+    // this.authService.addUser(this.user).subscribe(() => {
+    //   this.router.navigate(['/auth/login'], {
+    //     queryParams: { registered: 'success' },
+    //   });
+    // });
   }
 }

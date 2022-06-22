@@ -1,14 +1,121 @@
+import { style } from '@angular/animations';
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Booking } from './booking';
-import { BookingsComponent } from './bookings/bookings.component';
+import { Place } from './place';
 import { User } from './user';
+import { Room } from './room';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
+    const rooms: Room[] = [
+      {
+        id: 1,
+        name: 'bungalow',
+        rating: '4,6',
+        location: 'Sea',
+        images: [
+          './assets/images/bungalow.jpg',
+          './assets/images/villa.jpg',
+          './assets/images/villa.jpg',
+        ],
+      },
+      {
+        id: 2,
+        name: 'villa',
+        rating: '4,6',
+        location: 'City',
+        images: [
+          './assets/images/villa.jpg',
+          './assets/images/bungalow.jpg',
+          './assets/images/bungalow.jpg',
+        ],
+      },
+      {
+        id: 3,
+        name: 'house',
+        rating: '4,6',
+        location: 'City',
+        images: [
+          './assets/images/house.jpg',
+          './assets/images/villa.jpg',
+          './assets/images/villa.jpg',
+        ],
+      },
+      {
+        id: 4,
+        name: 'ruin',
+        rating: '4,6',
+        location: 'Sea',
+        images: [
+          './assets/images/ruin.jpg',
+          './assets/images/bungalow.jpg',
+          './assets/images/villa.jpg',
+        ],
+      },
+      {
+        id: 5,
+        name: 'camping',
+        rating: '4,6',
+        location: 'Lake',
+        images: [
+          './assets/images/camping.jpg',
+          './assets/images/villa.jpg',
+          './assets/images/villa.jpg',
+        ],
+      },
+    ];
+
+    const places: Place[] = [
+      {
+        icon: './assets/icons/building.svg',
+        name: 'City',
+      },
+      {
+        icon: './assets/icons/emoji-heart-eyes.svg',
+        name: 'Lake',
+      },
+      {
+        icon: './assets/icons/emoji-smile-upside-down.svg',
+        name: 'Island',
+      },
+      {
+        icon: './assets/icons/emoji-smile.svg',
+        name: 'Desert',
+      },
+      {
+        icon: './assets/icons/emoji-sunglasses.svg',
+        name: 'Sea',
+      },
+      {
+        icon: './assets/icons/emoji-wink.svg',
+        name: 'Jungle',
+      },
+      {
+        icon: './assets/icons/heart.svg',
+        name: 'Hills',
+      },
+      {
+        icon: './assets/icons/house.svg',
+        name: 'Mountain',
+      },
+      {
+        icon: './assets/icons/tree.svg',
+        name: 'Forest',
+      },
+      {
+        icon: './assets/icons/compass.svg',
+        name: 'Hikking',
+      },
+      {
+        icon: './assets/icons/map.svg',
+        name: 'Village',
+      },
+    ];
+
     const users: User[] = [
       {
         id: 2001,
@@ -54,7 +161,7 @@ export class InMemoryDataService implements InMemoryDbService {
         endDate: new Date(),
       },
     ];
-    return { bookings, users };
+    return { bookings, users, places, rooms };
   }
 
   genId(bookings: Booking[]): number {

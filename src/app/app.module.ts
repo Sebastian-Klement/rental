@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookingsComponent } from './bookings/bookings.component';
 import { CreateBookingComponent } from './create-booking/create-booking.component';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,6 +15,11 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthModule } from './auth/auth.module';
+import { FavouritePlacesComponent } from './favourite-places/favourite-places.component';
+import { RoomsComponent } from './rooms/rooms.component';
+import { ProfileComponent } from './profile/profile.component';
+import { RoomViewComponent } from './room-view/room-view.component';
+import { CreateRoomComponent } from './create-room/create-room.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +29,18 @@ import { AuthModule } from './auth/auth.module';
     HomeComponent,
     HeaderComponent,
     AuthComponent,
+    FavouritePlacesComponent,
+    RoomsComponent,
+    ProfileComponent,
+    RoomViewComponent,
+    CreateRoomComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
     FormsModule,
+    MatSliderModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
   ],

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AuthComponent } from './auth.component';
 import { RegisterComponent } from './register/register.component';
@@ -15,15 +16,26 @@ const routes: Routes = [
     path: 'auth',
     component: AuthComponent,
     children: [
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+      {
+        path: 'register',
+        component: RegisterComponent,
+        canActivate: [AuthGuard],
+      },
     ],
   },
 ];
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(routes),
+  ],
+  exports: [RouterModule],
   providers: [AuthService, AuthGuard],
 })
 export class AuthModule {}

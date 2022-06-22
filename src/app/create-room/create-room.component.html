@@ -1,0 +1,93 @@
+<p>create-room works!</p>
+
+<div class="card">
+  <div class="card-header">
+    <h5>Create new Room</h5>
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="row">
+        <div class="col">
+          <!-- Name -->
+          <label class="form-label">Name der Unterkunft</label>
+          <input
+            [(ngModel)]="room.name"
+            type="text"
+            name="name"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <!-- Adresse -->
+          <label class="form-label">Adresse der Unterkunft</label>
+          <input
+            [(ngModel)]="room.location"
+            type="text"
+            name="location"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <!-- Beschreibung -->
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Beschreibung der Unterkunft</label>
+          <input type="text" name="description" class="form-control" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <!-- Benefits -->
+          <label class="form-label">Benefits der Unterkunft</label>
+          <input type="text" name="benefits" class="form-control" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <!-- Bewertung -->
+          <label class="form-label">Bewertung der Unterkunft</label>
+          <input type="text" name="bewertung" class="form-control" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <!-- Karte -->
+          <p>Karte</p>
+          <!--Google map-->
+          <div
+            id="map-container-google-2"
+            class="z-depth-1-half map-container"
+            style="height: 500px"
+          >
+            <iframe
+              src="https://maps.google.com/maps?q=chicago&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              frameborder="0"
+              style="border: 0"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <!--Google Maps-->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <!-- Gstgeber -->
+          <p>infos über Gastgeber</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <!-- Good to know -->
+          <label class="form-label">Good to know der Unterkunft</label>
+          <input type="text" name="dinge" class="form-control" />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <button (click)="save()" class="btn btn-primary">Submit</button>
+  </div>
+</div>
