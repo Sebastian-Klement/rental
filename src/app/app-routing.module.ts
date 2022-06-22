@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
 import { BookingsComponent } from './bookings/bookings.component';
 import { CreateBookingComponent } from './create-booking/create-booking.component';
-import { CreateRoomComponent } from './create-room/create-room.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RoomViewComponent } from './room-view/room-view.component';
@@ -25,10 +24,6 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: CreateBookingComponent,
-  },
-  {
-    path: 'createroom',
-    component: CreateRoomComponent,
   },
   {
     path: 'editroom/:id',

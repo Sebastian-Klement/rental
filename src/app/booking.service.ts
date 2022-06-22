@@ -9,24 +9,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class BookingService {
-  constructor(private httpClient: HttpClient) {}
-
   bookingUrl: string = '/api/bookings';
   placeUrl: string = '/api/places';
-  roomUrl: string = '/api/rooms';
   response: any;
 
-  getRooms(): Observable<Room[]> {
-    return (this.response = this.httpClient.get<Room[]>(this.roomUrl));
-  }
-
-  getRoomById(id: number): Observable<Room> {
-    return (this.response = this.httpClient.get<Room>(this.roomUrl + '/' + id));
-  }
-
-  addRoom(room: Room): Observable<Room> {
-    return (this.response = this.httpClient.post<Room>(this.roomUrl, room));
-  }
+  constructor(private httpClient: HttpClient) {}
 
   getPlaces(): Observable<Place[]> {
     return (this.response = this.httpClient.get<Place[]>(this.placeUrl));

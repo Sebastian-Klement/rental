@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BookingService } from '../booking.service';
 import { Room } from '../room';
+import { IRental } from '../rental/rental.model';
+import { RentalService } from '../rental/rental.service';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +12,19 @@ import { Room } from '../room';
 })
 export class HomeComponent implements OnInit {
   notify: string = '';
-  rooms: Room[] = [];
+  rental: IRental[] = [];
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private bookingService: BookingService
+    private bookingService: BookingService,
+    private rentalService: RentalService
   ) {}
 
   ngOnInit(): void {
-    this.bookingService.getRooms().subscribe((result) => (this.rooms = result));
+    this.rentalService
+      .getRentals()
+      .subscribe((result) => (this.rental = result));
 
     this.activatedRoute.queryParams.subscribe((params) => {
       const key1 = 'loggedin';

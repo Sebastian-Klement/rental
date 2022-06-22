@@ -71,15 +71,4 @@ export class AuthService {
   public getUsername(): string {
     return this.decodedToken.username;
   }
-
-  // userUrl: string = '/api/users';
-  // response: any;
-
-  // addUser(user: User): Observable<User> {
-  //   return (this.response = this.httpClient.post<User>(this.userUrl, user));
-  // }
-
-  // getUser(): Observable<User[]> {
-  //   return (this.response = this.httpClient.get<User[]>(this.userUrl));
-  // }
 }

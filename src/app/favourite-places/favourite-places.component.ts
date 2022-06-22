@@ -18,7 +18,9 @@ export class FavouritePlacesComponent implements OnInit {
   constructor(private bookingService: BookingService) {}
 
   ngOnInit(): void {
-    this.bookingService.getRooms().subscribe((result) => (this.rooms = result));
+    this.bookingService
+      .getPlaces()
+      .subscribe((result) => (this.places = result));
     this.bookingService
       .getPlaces()
       .subscribe((result) => (this.places = result));

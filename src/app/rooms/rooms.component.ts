@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BookingService } from '../booking.service';
-import { Room } from '../room';
+import { RentalService } from '../rental/rental.service';
+import { IRental } from '../rental/rental.model';
 
 @Component({
   selector: 'app-rooms',
@@ -8,11 +8,14 @@ import { Room } from '../room';
   styleUrls: ['./rooms.component.css'],
 })
 export class RoomsComponent implements OnInit {
-  rooms: Room[] = [];
+  rentals: IRental[] = [];
 
-  constructor(private bookingService: BookingService) {}
+  constructor(private rentalService: RentalService) {}
 
   ngOnInit(): void {
-    this.bookingService.getRooms().subscribe((result) => (this.rooms = result));
+    this.rentalService
+      .getRentals()
+      .subscribe((result) => (this.rentals = result));
+    console.log(this.rentals);
   }
 }

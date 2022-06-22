@@ -19,7 +19,8 @@ import { FavouritePlacesComponent } from './favourite-places/favourite-places.co
 import { RoomsComponent } from './rooms/rooms.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RoomViewComponent } from './room-view/room-view.component';
-import { CreateRoomComponent } from './create-room/create-room.component';
+import { RentalComponent } from './rental/rental.component';
+import { RentalModule } from './rental/rental.module';
 
 @NgModule({
   declarations: [
@@ -33,13 +34,14 @@ import { CreateRoomComponent } from './create-room/create-room.component';
     RoomsComponent,
     ProfileComponent,
     RoomViewComponent,
-    CreateRoomComponent,
+    RentalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
     FormsModule,
+    RentalModule,
     MatSliderModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),

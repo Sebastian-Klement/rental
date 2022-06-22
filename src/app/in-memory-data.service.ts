@@ -3,14 +3,53 @@ import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Booking } from './booking';
 import { Place } from './place';
-import { User } from './user';
+import { IUser } from './user';
 import { Room } from './room';
+import { IRental } from './rental/rental.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
+    const rental: IRental[] = [
+      {
+        _id: '100',
+        title: 'bungalow',
+        city: 'nuernberg',
+        street: 'Hauptstrasse',
+        category: 'wasser',
+        images: [
+          './assets/images/bungalow.jpg',
+          './assets/images/villa.jpg',
+          './assets/images/house.jpg',
+        ],
+        bedrooms: 2,
+        description: 'mega gemütlich',
+        dailyRate: 4,
+        createdAt: new Date(),
+        shared: false,
+        bookings: [],
+      },
+      {
+        _id: '200',
+        title: 'house',
+        city: 'nuernberg',
+        street: 'Hauptstrasse',
+        category: 'berge',
+        images: [
+          './assets/images/house.jpg',
+          './assets/images/bungalow.jpg',
+          './assets/images/villa.jpg',
+        ],
+        bedrooms: 3,
+        description: 'mega gemütlich',
+        dailyRate: 4,
+        createdAt: new Date(),
+        shared: false,
+        bookings: [],
+      },
+    ];
     const rooms: Room[] = [
       {
         id: 1,
@@ -116,7 +155,7 @@ export class InMemoryDataService implements InMemoryDbService {
       },
     ];
 
-    const users: User[] = [
+    const users: IUser[] = [
       {
         id: 2001,
         username: 'frodo',
@@ -161,7 +200,7 @@ export class InMemoryDataService implements InMemoryDbService {
         endDate: new Date(),
       },
     ];
-    return { bookings, users, places, rooms };
+    return { bookings, users, places, rooms, rental };
   }
 
   genId(bookings: Booking[]): number {

@@ -11,9 +11,19 @@
           <!-- Name -->
           <label class="form-label">Name der Unterkunft</label>
           <input
-            [(ngModel)]="room.name"
+            [(ngModel)]="rental.title"
             type="text"
             name="name"
+            class="form-control"
+          />
+        </div>
+        <div class="col-2">
+          <!-- ID -->
+          <label class="form-label">ID der Unterkunft</label>
+          <input
+            [(ngModel)]="rental._id"
+            type="text"
+            name="roomId"
             class="form-control"
           />
         </div>
@@ -23,7 +33,7 @@
           <!-- Adresse -->
           <label class="form-label">Adresse der Unterkunft</label>
           <input
-            [(ngModel)]="room.location"
+            [(ngModel)]="rental.city"
             type="text"
             name="location"
             class="form-control"
@@ -75,7 +85,16 @@
       <div class="row">
         <div class="col">
           <!-- Gstgeber -->
-          <p>infos über Gastgeber</p>
+          <label class="form-label">Beschreibung Gastgeber</label>
+          <input type="text" name="gastgeber" class="form-control" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <!-- Upload data -->
+          <div class="mb-3">
+            <input type="file" class="file-input" />
+          </div>
         </div>
       </div>
       <div class="row">
