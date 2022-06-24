@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Booking } from '../booking';
+import { IBooking } from '../booking.model';
 import { BookingService } from '../booking.service';
 
 @Component({
   selector: 'app-bookings',
-  templateUrl: './bookings.component.html',
-  styleUrls: ['./bookings.component.css'],
+  templateUrl: './booking-list.component.html',
+  styleUrls: ['./booking-list.component.css'],
 })
 export class BookingsComponent implements OnInit {
   constructor(private bookingService: BookingService) {}
 
-  bookings: Booking[] = [];
+  bookings: IBooking[] = [];
 
   ngOnInit(): void {
     this.bookingService.getBookings().subscribe((result) => {
@@ -18,7 +18,7 @@ export class BookingsComponent implements OnInit {
     });
   }
 
-  deleteBooking(booking: Booking): void {
+  deleteBooking(booking: IBooking): void {
     this.bookingService.deleteBooking(booking).subscribe();
     this.bookings = this.bookings.filter((b) => b != booking);
   }

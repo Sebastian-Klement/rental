@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
-import { BookingsComponent } from './bookings/bookings.component';
-import { CreateBookingComponent } from './create-booking/create-booking.component';
+import { BookingsComponent } from './booking/booking-list/booking-list.component';
+import { CreateBookingComponent } from './booking/booking-create/booking-create.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-import { RoomViewComponent } from './room-view/room-view.component';
+//import { RoomViewComponent } from './rental-detail/rental-detail.component';
 
 const routes: Routes = [
   {
@@ -25,10 +25,10 @@ const routes: Routes = [
     path: 'edit/:id',
     component: CreateBookingComponent,
   },
-  {
-    path: 'editroom/:id',
-    component: RoomViewComponent,
-  },
+  // {
+  //   path: 'editroom/:id',
+  //   component: RoomViewComponent,
+  // },
   {
     path: 'home',
     component: HomeComponent,

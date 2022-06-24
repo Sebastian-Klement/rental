@@ -1,6 +1,6 @@
-import { Booking } from './booking';
+import { IBooking } from './booking/booking.model';
 
-export const Bookings: Booking[] = [
+export const Bookings: IBooking[] = [
   {
     id: 1,
     name: 'Frodo Beutlin',

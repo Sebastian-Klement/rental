@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Booking } from './booking';
-import { Place } from './place';
-import { Room } from './room';
+import { IBooking } from './booking.model';
+import { Place } from '../place';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -19,25 +18,25 @@ export class BookingService {
     return (this.response = this.httpClient.get<Place[]>(this.placeUrl));
   }
 
-  getBookings(): Observable<Booking[]> {
-    return (this.response = this.httpClient.get<Booking[]>(this.bookingUrl));
+  getBookings(): Observable<IBooking[]> {
+    return (this.response = this.httpClient.get<IBooking[]>(this.bookingUrl));
   }
 
-  getBookingById(id: number): Observable<Booking> {
-    return (this.response = this.httpClient.get<Booking>(
+  getBookingById(id: number): Observable<IBooking> {
+    return (this.response = this.httpClient.get<IBooking>(
       this.bookingUrl + '/' + id
     ));
   }
 
-  addBooking(booking: Booking): Observable<Booking> {
-    return (this.response = this.httpClient.post<Booking>(
+  addBooking(booking: IBooking): Observable<IBooking> {
+    return (this.response = this.httpClient.post<IBooking>(
       this.bookingUrl,
       booking
     ));
   }
 
-  deleteBooking(booking: Booking): Observable<Booking> {
-    return (this.response = this.httpClient.delete<Booking>(
+  deleteBooking(booking: IBooking): Observable<IBooking> {
+    return (this.response = this.httpClient.delete<IBooking>(
       this.bookingUrl + '/' + booking.id
     ));
   }

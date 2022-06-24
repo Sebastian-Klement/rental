@@ -38,15 +38,15 @@
     <div class="col" *ngFor="let rental of rentals">
       <div class="card border-0">
         <div class="card-img-top">
-          <div id="myCarousel-{{ rental._id }}" class="carousel slide">
+          <div id="myCarousel-{{ rental.id }}" class="carousel slide">
             <div class="carousel-inner rounded-3">
               <div class="form-check">
                 <input
                   type="checkbox"
                   class="form-check-input"
-                  id="room-id-{{ rental._id }}"
+                  id="room-id-{{ rental.id }}"
                 />
-                <label for="room-id-{{ rental._id }}">&#9829;</label>
+                <label for="room-id-{{ rental.id }}">&#9829;</label>
               </div>
               <div
                 class="carousel-item"
@@ -58,7 +58,7 @@
               <a
                 class="carousel-control-prev"
                 type="button"
-                href="#myCarousel-{{ rental._id }}"
+                href="#myCarousel-{{ rental.id }}"
                 data-bs-slide="prev"
               >
                 <span
@@ -70,7 +70,7 @@
               <a
                 class="carousel-control-next"
                 type="button"
-                href="#myCarousel-{{ rental._id }}"
+                href="#myCarousel-{{ rental.id }}"
                 data-bs-slide="next"
               >
                 <span
@@ -85,10 +85,10 @@
         <div class="card-body">
           <a
             class="card-title h-5 text-decoration-none text-danger"
-            routerLink="/editroom/{{ rental._id }}"
+            routerLink="/rental/rentaldetail/{{ rental.id }}"
             routerLinkActive="active"
           >
-            Unterkunft {{ rental._id }}
+            Unterkunft {{ rental.id }}
             <small>{{ rental.title }} ratin in rentalmodel einfügen </small>
           </a>
           <p class="card-text">

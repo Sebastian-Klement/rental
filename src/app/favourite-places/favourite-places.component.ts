@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { BookingService } from '../booking.service';
+import { BookingService } from '../booking/booking.service';
 import { Place } from '../place';
 import { Room } from '../room';
 

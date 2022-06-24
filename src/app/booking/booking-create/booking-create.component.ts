@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Booking } from '../booking';
+import { IBooking } from '../booking.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BookingService } from '../booking.service';
 
 @Component({
-  selector: 'app-create-booking',
-  templateUrl: './create-booking.component.html',
-  styleUrls: ['./create-booking.component.css'],
+  selector: 'app-booking-create',
+  templateUrl: './booking-create.component.html',
+  styleUrls: ['./booking-create.component.css'],
 })
 export class CreateBookingComponent implements OnInit {
   constructor(
@@ -15,7 +15,7 @@ export class CreateBookingComponent implements OnInit {
     private bookingService: BookingService
   ) {}
 
-  booking: Booking = {
+  booking: IBooking = {
     id: null,
     name: 'Your name',
     roomNumber: 1000,

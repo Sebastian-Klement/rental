@@ -1,8 +1,8 @@
-import { Booking } from '../booking';
-import { IUser } from '../user';
+// import { Booking } from '../booking';
+// import { IUser } from '../user/user';
 
 export interface IRental {
-  _id: string;
+  id: string;
   title: string;
   city: string;
   street: string;
@@ -13,6 +13,6 @@ export interface IRental {
   dailyRate: number;
   createdAt: Date;
   shared: boolean;
-  bookings: Booking[];
+  //bookings: Booking[];
   //user: IUser;
 }

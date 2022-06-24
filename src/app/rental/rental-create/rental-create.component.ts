@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Room } from '../../room';
 import { IRental } from '../rental.model';
 import { RentalService } from '../rental.service';
 
@@ -17,7 +16,7 @@ export class RentalCreateComponent implements OnInit {
   ) {}
 
   rental: IRental = {
-    _id: '',
+    id: '',
     title: '',
     city: '',
     street: '',
@@ -28,7 +27,7 @@ export class RentalCreateComponent implements OnInit {
     dailyRate: 0,
     createdAt: new Date(),
     shared: false,
-    bookings: [],
+    //bookings: [],
   };
 
   // room: any = {
@@ -55,16 +54,17 @@ export class RentalCreateComponent implements OnInit {
   // };
 
   ngOnInit(): void {
-    if (this.router.url != '/createroom') {
-      var id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-      this.rentalService.getRoomById(id).subscribe((result) => {
-        this.rental = result;
-      });
-    }
+    //TODO Für Rental noch ein rentaledit Comp. implementieren
+    // if (this.router.url != '/rentalcreate') {
+    //   var id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    //   this.rentalService.getRentalById(id).subscribe((result) => {
+    //     this.rental = result;
+    //   });
+    // }
   }
 
   save(): void {
-    this.rentalService.addRoom(this.rental).subscribe();
+    this.rentalService.addRental(this.rental).subscribe();
     this.router.navigate(['home']);
   }
 }

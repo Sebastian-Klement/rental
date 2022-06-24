@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IRental } from '../rental/rental.model';
-import { RentalService } from '../rental/rental.service';
+import { IRental } from '../rental.model';
+import { RentalService } from '../rental.service';
 
 @Component({
-  selector: 'app-room-view',
-  templateUrl: './room-view.component.html',
-  styleUrls: ['./room-view.component.css'],
+  selector: 'app-rental-detail',
+  templateUrl: './rental-detail.component.html',
+  styleUrls: ['./rental-detail.component.css'],
 })
-export class RoomViewComponent implements OnInit {
+export class RentalDetailComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -16,7 +16,7 @@ export class RoomViewComponent implements OnInit {
   ) {}
 
   rental: IRental = {
-    _id: '',
+    id: '',
     title: '',
     city: '',
     street: '',
@@ -27,13 +27,13 @@ export class RoomViewComponent implements OnInit {
     dailyRate: 0,
     createdAt: new Date(),
     shared: false,
-    bookings: [],
+    //bookings: [],
     //user: undefined
   };
 
   ngOnInit(): void {
     var id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.rentalService.getRoomById(id).subscribe((result) => {
+    this.rentalService.getRentalById(id).subscribe((result) => {
       this.rental = result;
     });
   }

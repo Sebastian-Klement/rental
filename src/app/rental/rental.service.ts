@@ -16,13 +16,13 @@ export class RentalService {
     return (this.response = this.httpClient.get<IRental[]>(this.rentalUrl));
   }
 
-  getRoomById(id: number): Observable<IRental> {
+  getRentalById(id: number): Observable<IRental> {
     return (this.response = this.httpClient.get<IRental>(
       this.rentalUrl + '/' + id
     ));
   }
 
-  addRoom(rental: IRental): Observable<IRental> {
+  addRental(rental: IRental): Observable<IRental> {
     return (this.response = this.httpClient.post<IRental>(
       this.rentalUrl,
       rental

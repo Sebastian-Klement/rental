@@ -1,9 +1,8 @@
-import { style } from '@angular/animations';
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Booking } from './booking';
+import { IBooking } from './booking/booking.model';
 import { Place } from './place';
-import { IUser } from './user';
+import { IUser } from './user/user';
 import { Room } from './room';
 import { IRental } from './rental/rental.model';
 
@@ -14,7 +13,7 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const rental: IRental[] = [
       {
-        _id: '100',
+        id: '100',
         title: 'bungalow',
         city: 'nuernberg',
         street: 'Hauptstrasse',
@@ -29,10 +28,10 @@ export class InMemoryDataService implements InMemoryDbService {
         dailyRate: 4,
         createdAt: new Date(),
         shared: false,
-        bookings: [],
+        //bookings: [],
       },
       {
-        _id: '200',
+        id: '200',
         title: 'house',
         city: 'nuernberg',
         street: 'Hauptstrasse',
@@ -47,7 +46,7 @@ export class InMemoryDataService implements InMemoryDbService {
         dailyRate: 4,
         createdAt: new Date(),
         shared: false,
-        bookings: [],
+        //bookings: [],
       },
     ];
     const rooms: Room[] = [
@@ -170,7 +169,7 @@ export class InMemoryDataService implements InMemoryDbService {
       },
     ];
 
-    const bookings: Booking[] = [
+    const bookings: IBooking[] = [
       {
         id: 1001,
         name: 'Frodo Beutlin',
@@ -203,7 +202,7 @@ export class InMemoryDataService implements InMemoryDbService {
     return { bookings, users, places, rooms, rental };
   }
 
-  genId(bookings: Booking[]): number {
+  genId(bookings: IBooking[]): number {
     return bookings.length > 0
       ? Math.max(...bookings.map((b) => b.id)) + 1
       : 11111;

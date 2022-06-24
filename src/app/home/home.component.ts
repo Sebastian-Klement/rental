@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BookingService } from '../booking.service';
-import { Room } from '../room';
 import { IRental } from '../rental/rental.model';
 import { RentalService } from '../rental/rental.service';
 
@@ -17,7 +15,6 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private bookingService: BookingService,
     private rentalService: RentalService
   ) {}
 

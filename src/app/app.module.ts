@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BookingsComponent } from './bookings/bookings.component';
-import { CreateBookingComponent } from './create-booking/create-booking.component';
+import { BookingsComponent } from './booking/booking-list/booking-list.component';
+import { CreateBookingComponent } from './booking/booking-create/booking-create.component';
 import { MatSliderModule } from '@angular/material/slider';
 
 import { FormsModule } from '@angular/forms';
@@ -16,9 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthModule } from './auth/auth.module';
 import { FavouritePlacesComponent } from './favourite-places/favourite-places.component';
-import { RoomsComponent } from './rooms/rooms.component';
 import { ProfileComponent } from './profile/profile.component';
-import { RoomViewComponent } from './room-view/room-view.component';
 import { RentalComponent } from './rental/rental.component';
 import { RentalModule } from './rental/rental.module';
 
@@ -31,9 +29,7 @@ import { RentalModule } from './rental/rental.module';
     HeaderComponent,
     AuthComponent,
     FavouritePlacesComponent,
-    RoomsComponent,
     ProfileComponent,
-    RoomViewComponent,
     RentalComponent,
   ],
   imports: [

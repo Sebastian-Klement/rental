@@ -7,26 +7,40 @@ import { HttpClientModule } from '@angular/common/http';
 import { RentalComponent } from './rental.component';
 import { RentalCreateComponent } from './rental-create/rental-create.component';
 import { RentalService } from './rental.service';
+import { RentalDetailComponent } from './rental-detail/rental-detail.component';
+import { RentalListComponent } from './rental-list/rental-list.component';
+
+import { AuthGuard } from '../auth/auth.guard';
 
 const routes: Routes = [
   {
     path: 'rental',
     component: RentalComponent,
     children: [
-      // { path: '', component: RentalListComponent },
+      {
+        path: '',
+        component: RentalListComponent,
+      },
       {
         path: 'rentalcreate',
         component: RentalCreateComponent,
+        // canActivate: [AuthGuard]
       },
-      // { path: ':rentalId/edit', component: RentalDetailUpdateComponent },
-      // { path: ':rentalId', component: RentalDetailComponent },
+      {
+        path: 'rentaldetail/:id',
+        component: RentalDetailComponent,
+      },
       // { path: ':city/homes', component: RentalSearchComponent },
     ],
   },
 ];
 
 @NgModule({
-  declarations: [RentalCreateComponent],
+  declarations: [
+    RentalCreateComponent,
+    RentalDetailComponent,
+    RentalListComponent,
+  ],
   imports: [
     HttpClientModule,
     CommonModule,
@@ -34,7 +48,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, RentalListComponent],
   providers: [RentalService],
 })
 export class RentalModule {}
