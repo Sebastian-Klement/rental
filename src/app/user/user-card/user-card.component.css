@@ -1,0 +1,9 @@
+.card-img-top {
+  border-radius: 50%;
+}
+
+.btn{
+  position: relative;
+  float: right;
+  margin-top: -2.35em;
+}

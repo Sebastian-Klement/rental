@@ -1,39 +1,4 @@
-<!-- <ng-container class="container">
-  <div class="row row-cols-4">
-    <div class="col" *ngFor="let room of rooms">
-      <div class="card border-0">
-        <div class="card-img-top">
-          <div class="form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="room-id-{{ room.id }}"
-            />
-            <label for="room-id-{{ room.id }}">&#9829;</label>
-          </div>
-          <img
-            src="{{ room.images[0] }}"
-            class="card-img w-100 rounded-3"
-            alt="..."
-          />
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            Unterkunft {{ room.id }}
-            <small>4,5</small>
-          </h5>
-          <p class="card-text">
-            Carousel mit Indicator und Controls sowie Bilder der Unterkunft.
-            Faviritentag in einer oberen Ecke
-            {{ room.name }}, Land, gastgeber zeitraum kosten/nacht
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</ng-container> -->
-
-<ng-container class="container">
+<div class="container">
   <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
     <div class="col" *ngFor="let rental of rentals">
       <div class="card border-0">
@@ -46,7 +11,9 @@
                   class="form-check-input"
                   id="room-id-{{ rental.id }}"
                 />
-                <label for="room-id-{{ rental.id }}">&#9829;</label>
+                <label for="room-id-{{ rental.id }}"
+                  ><i class="bi bi-heart-fill"></i
+                ></label>
               </div>
               <div
                 class="carousel-item"
@@ -88,16 +55,16 @@
             routerLink="/rental/rentaldetail/{{ rental.id }}"
             routerLinkActive="active"
           >
-            Unterkunft {{ rental.id }}
-            <small>{{ rental.title }} ratin in rentalmodel einfügen </small>
+            Artikel {{ rental.id }}
+            <small>{{ rental.title }} rating in rentalmodel einfügen </small>
           </a>
           <p class="card-text">
-            Carousel mit Indicator und Controls sowie Bilder der Unterkunft.
+            Carousel mit Indicator und Controls sowie Bilder des Artikel.
             Faviritentag in einer oberen Ecke
-            {{ rental.title }}, Land, gastgeber zeitraum kosten/nacht
+            {{ rental.category }}, Land, gastgeber zeitraum kosten/nacht
           </p>
         </div>
       </div>
     </div>
   </div>
-</ng-container>
+</div>

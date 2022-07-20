@@ -1,6 +1,15 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { BookingService } from '../booking/booking.service';
-import { Place } from '../place';
+import { Category } from '../place';
+import { RentalListComponent } from '../rental/rental-list/rental-list.component';
+import { RentalService } from '../rental/rental.service';
 import { Room } from '../room';
 
 @Component({
@@ -12,18 +21,20 @@ export class FavouritePlacesComponent implements OnInit {
   @ViewChild('widgetsContent', { read: ElementRef })
   widgetsContent!: ElementRef<any>;
 
-  places: Place[] = [];
+  categories: Category[] = [];
   rooms: Room[] = [];
 
-  constructor(private bookingService: BookingService) {}
+  @Output() eventChange = new EventEmitter<Event>();
+
+  constructor(
+    private bookingService: BookingService,
+    private rentalService: RentalService
+  ) {}
 
   ngOnInit(): void {
     this.bookingService
       .getPlaces()
-      .subscribe((result) => (this.places = result));
-    this.bookingService
-      .getPlaces()
-      .subscribe((result) => (this.places = result));
+      .subscribe((result) => (this.categories = result));
   }
 
   public scrollRight(): void {
@@ -38,5 +49,10 @@ export class FavouritePlacesComponent implements OnInit {
       left: this.widgetsContent.nativeElement.scrollLeft + 250,
       behavior: 'smooth',
     });
+  }
+
+  public setCategory(event: Event, name: string) {
+    this.rentalService.categoryName = name;
+    this.eventChange.emit(event);
   }
 }

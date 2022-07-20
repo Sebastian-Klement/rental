@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IBooking } from './booking.model';
-import { Place } from '../place';
+import { Category } from '../place';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -9,13 +9,13 @@ import { Observable } from 'rxjs';
 })
 export class BookingService {
   bookingUrl: string = '/api/bookings';
-  placeUrl: string = '/api/places';
+  categoryUrl: string = '/api/categories';
   response: any;
 
   constructor(private httpClient: HttpClient) {}
 
-  getPlaces(): Observable<Place[]> {
-    return (this.response = this.httpClient.get<Place[]>(this.placeUrl));
+  getPlaces(): Observable<Category[]> {
+    return (this.response = this.httpClient.get<Category[]>(this.categoryUrl));
   }
 
   getBookings(): Observable<IBooking[]> {

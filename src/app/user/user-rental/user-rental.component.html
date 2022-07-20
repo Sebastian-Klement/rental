@@ -1,0 +1,41 @@
+<section>
+  <div class="h1">user-rental works!</div>
+  <div class="row">
+    <ng-container *ngIf="rentals && rentals.length > 0">
+      <div *ngFor="let rental of rentals">
+        <div class="card">
+          <div class="card-title h4">
+            {{ rental.title }} - {{ rental.city }}
+          </div>
+          <a class="btn btn-bwm" routerLink="/rentals/{{ rental.id }}"
+            >Go to Rental</a
+          >
+        </div>
+        <div class="card-footer text-muted">
+          <p>Created at {{ rental.createdAt }}</p>
+          <button
+            (click)="deleteRental(rental)"
+            type="button"
+            class="btn btn-bwm btn-delete"
+          >
+            Delete
+          </button>
+          <button
+            (click)="goToUpdate(rental.id)"
+            type="button"
+            class="btn btn-bwm btn-delete"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+    </ng-container>
+    <div *ngIf="rentals && rentals.length == 0" class="col-md-8">
+      <div class="alert alert-warning">
+        You dont have any rentals currenty created. If you want advertised your
+        property please follow this link.
+        <a class="btn btn-bwm" routerLink="/rentals/new">Register Rental</a>
+      </div>
+    </div>
+  </div>
+</section>

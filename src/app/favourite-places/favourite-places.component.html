@@ -1,35 +1,36 @@
-<div class="scroll-horizontal pt-5">
-  <div class="blurLeft">
-    <button id="slideLeft" (click)="scrollRight()" type="button" class="btn">
-      <img src="./assets/icons/chevron-left.svg" />
-    </button>
-  </div>
-  <div #widgetsContent class="container shadow-sm rounded">
-    <div class="card text-center">
-      <div class="card card-body" *ngFor="let place of places">
-        <nav class="navbar navbar-expand-lg">
-          <div class="navbar-nav">
-            <div class="nav-item">
-              <a
-                routerLink="#"
-                aria-current="page"
-                class="nav-link"
-                routerLinkActive="active"
-              >
-                <p>
-                  {{ place.name }} <br />
-                  <img src="{{ place.icon }}" />
-                </p>
-              </a>
+<section class="sticky-section">
+  <div class="scroll-horizontal pt-4">
+    <div class="blurLeft">
+      <button id="slideLeft" (click)="scrollRight()" type="button" class="btn">
+        <img src="./assets/icons/chevron-left.svg" />
+      </button>
+    </div>
+    <div #widgetsContent class="container rounded-5">
+      <div class="card text-center">
+        <div class="card card-body" *ngFor="let category of categories">
+          <nav class="navbar navbar-expand-lg">
+            <div class="navbar-nav">
+              <div class="nav-item">
+                <div
+                  (click)="setCategory($event, category.name)"
+                  aria-current="page"
+                  class="nav-link btn"
+                >
+                  <div>
+                    {{ category.name }} <br />
+                    <img src="{{ category.icon }}" />
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
+        </div>
       </div>
     </div>
+    <div class="blurRight">
+      <button id="slideRight" (click)="scrollLeft()" type="button" class="btn">
+        <img src="./assets/icons/chevron-right.svg" />
+      </button>
+    </div>
   </div>
-  <div class="blurRight">
-    <button id="slideRight" (click)="scrollLeft()" type="button" class="btn">
-      <img src="./assets/icons/chevron-right.svg" />
-    </button>
-  </div>
-</div>
+</section>

@@ -49,6 +49,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ],
   exports: [RouterModule, RentalListComponent],
-  providers: [RentalService],
+  providers: [RentalService, AuthGuard],
 })
 export class RentalModule {}

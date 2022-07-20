@@ -13,24 +13,28 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { FavouritePlacesComponent } from './favourite-places/favourite-places.component';
+
 import { AuthComponent } from './auth/auth.component';
 import { AuthModule } from './auth/auth.module';
-import { FavouritePlacesComponent } from './favourite-places/favourite-places.component';
-import { ProfileComponent } from './profile/profile.component';
+
 import { RentalComponent } from './rental/rental.component';
 import { RentalModule } from './rental/rental.module';
+
+import { UserComponent } from './user/user.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookingsComponent,
     CreateBookingComponent,
     HomeComponent,
     HeaderComponent,
     AuthComponent,
     FavouritePlacesComponent,
-    ProfileComponent,
     RentalComponent,
+    BookingsComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,7 @@ import { RentalModule } from './rental/rental.module';
     AuthModule,
     FormsModule,
     RentalModule,
+    UserModule,
     MatSliderModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),

@@ -49,9 +49,9 @@ export class AuthService {
   //get userinfo implementieren und in ProfileComp anzeigen wenn user eingeloggt ist
   public getUser(): any {
     const user = localStorage.getItem('auth_tkn');
-    console.log(user);
     if (user) {
-      return JSON.parse(user);
+      console.log(this.decodedToken.username );
+      return this.decodedToken.username;
     }
     return {};
   }

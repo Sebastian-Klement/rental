@@ -1,5 +1,5 @@
 import { IRental } from '../rental/rental.model';
-import { IUser } from '../user/user';
+import { IUser } from '../user/user.model';
 
 export interface IBooking {
   id: any;
