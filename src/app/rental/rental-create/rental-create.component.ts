@@ -30,6 +30,14 @@ export class RentalCreateComponent implements OnInit {
     //bookings: [],
   };
 
+  selectedCategory = 0;
+  categories = [
+    { id: 0, name: 'Wähle eine Kategorie' },
+    { id: 1, name: 'SUP' },
+    { id: 2, name: 'Wandern' },
+    { id: 3, name: 'Kiten' },
+  ];
+
   // room: any = {
   //   id: '100',
   //   name: 'Bastis Haus',

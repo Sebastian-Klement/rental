@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { IBooking } from './booking/booking.model';
-import { Place } from './place';
-import { IUser } from './user/user';
+import { Category } from './place';
+import { IUser } from './user/user.model';
 import { Room } from './room';
 import { IRental } from './rental/rental.model';
 
@@ -14,10 +14,10 @@ export class InMemoryDataService implements InMemoryDbService {
     const rental: IRental[] = [
       {
         id: '100',
-        title: 'bungalow',
+        title: 'Schnorcheln',
         city: 'nuernberg',
         street: 'Hauptstrasse',
-        category: 'wasser',
+        category: 'Wasser',
         images: [
           './assets/images/bungalow.jpg',
           './assets/images/villa.jpg',
@@ -32,10 +32,82 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: '200',
-        title: 'house',
+        title: 'Klettern',
         city: 'nuernberg',
         street: 'Hauptstrasse',
-        category: 'berge',
+        category: 'Berge',
+        images: [
+          './assets/images/house.jpg',
+          './assets/images/bungalow.jpg',
+          './assets/images/villa.jpg',
+        ],
+        bedrooms: 3,
+        description: 'mega gemütlich',
+        dailyRate: 4,
+        createdAt: new Date(),
+        shared: false,
+        //bookings: [],
+      },
+      {
+        id: '300',
+        title: 'Dünensurfen',
+        city: 'nuernberg',
+        street: 'Hauptstrasse',
+        category: 'Wüste',
+        images: [
+          './assets/images/bungalow.jpg',
+          './assets/images/villa.jpg',
+          './assets/images/house.jpg',
+        ],
+        bedrooms: 2,
+        description: 'mega gemütlich',
+        dailyRate: 4,
+        createdAt: new Date(),
+        shared: false,
+        //bookings: [],
+      },
+      {
+        id: '400',
+        title: 'Wandern',
+        city: 'nuernberg',
+        street: 'Hauptstrasse',
+        category: 'Outdoor',
+        images: [
+          './assets/images/house.jpg',
+          './assets/images/bungalow.jpg',
+          './assets/images/villa.jpg',
+        ],
+        bedrooms: 3,
+        description: 'mega gemütlich',
+        dailyRate: 4,
+        createdAt: new Date(),
+        shared: false,
+        //bookings: [],
+      },
+      {
+        id: '500',
+        title: 'Stand Up Padel',
+        city: 'nuernberg',
+        street: 'Hauptstrasse',
+        category: 'Wasser',
+        images: [
+          './assets/images/bungalow.jpg',
+          './assets/images/villa.jpg',
+          './assets/images/house.jpg',
+        ],
+        bedrooms: 2,
+        description: 'mega gemütlich',
+        dailyRate: 4,
+        createdAt: new Date(),
+        shared: false,
+        //bookings: [],
+      },
+      {
+        id: '600',
+        title: 'Kitesurfing',
+        city: 'nuernberg',
+        street: 'Hauptstrasse',
+        category: 'Wasser',
         images: [
           './assets/images/house.jpg',
           './assets/images/bungalow.jpg',
@@ -49,6 +121,7 @@ export class InMemoryDataService implements InMemoryDbService {
         //bookings: [],
       },
     ];
+
     const rooms: Room[] = [
       {
         id: 1,
@@ -107,48 +180,59 @@ export class InMemoryDataService implements InMemoryDbService {
       },
     ];
 
-    const places: Place[] = [
+    const categories: Category[] = [
       {
+        id: 1,
         icon: './assets/icons/building.svg',
-        name: 'City',
+        name: 'Kiten',
       },
       {
+        id: 2,
         icon: './assets/icons/emoji-heart-eyes.svg',
-        name: 'Lake',
+        name: 'Wasser',
       },
       {
+        id: 3,
         icon: './assets/icons/emoji-smile-upside-down.svg',
-        name: 'Island',
+        name: 'SUP',
       },
       {
+        id: 4,
         icon: './assets/icons/emoji-smile.svg',
-        name: 'Desert',
+        name: 'Wüste',
       },
       {
+        id: 5,
         icon: './assets/icons/emoji-sunglasses.svg',
-        name: 'Sea',
+        name: 'Meer',
       },
       {
+        id: 6,
         icon: './assets/icons/emoji-wink.svg',
-        name: 'Jungle',
+        name: 'Berge',
       },
       {
+        id: 7,
         icon: './assets/icons/heart.svg',
         name: 'Hills',
       },
       {
+        id: 8,
         icon: './assets/icons/house.svg',
         name: 'Mountain',
       },
       {
+        id: 9,
         icon: './assets/icons/tree.svg',
         name: 'Forest',
       },
       {
+        id: 10,
         icon: './assets/icons/compass.svg',
         name: 'Hikking',
       },
       {
+        id: 11,
         icon: './assets/icons/map.svg',
         name: 'Village',
       },
@@ -199,7 +283,7 @@ export class InMemoryDataService implements InMemoryDbService {
         endDate: new Date(),
       },
     ];
-    return { bookings, users, places, rooms, rental };
+    return { bookings, users, categories, rooms, rental };
   }
 
   genId(bookings: IBooking[]): number {

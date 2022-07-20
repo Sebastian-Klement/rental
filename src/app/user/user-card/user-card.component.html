@@ -1,0 +1,86 @@
+<div class="card border-0">
+  <div class="row">
+    <div class="card-body col-8">
+      <div class="row">
+        <div class="col">
+          <!-- VorName -->
+          <label class="form-label">Vorname</label>
+          <input type="text" name="vorname" class="form-control" />
+        </div>
+
+        <div class="col">
+          <!-- NachName -->
+          <label class="form-label">Nachname</label>
+          <input type="text" name="nachname" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-10">
+          <!-- Straße -->
+          <label class="form-label">Straße</label>
+          <input type="text" name="stasse" class="form-control" />
+        </div>
+
+        <div class="col-2">
+          <!-- Hausnummer -->
+          <label class="form-label">Hausnummer</label>
+          <input type="text" name="hausnummer" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <!-- Plz -->
+          <label class="form-label">Plz</label>
+          <input type="text" name="plz" class="form-control" />
+        </div>
+
+        <div class="col">
+          <!-- Stadt -->
+          <label class="form-label">Stadt</label>
+          <input type="text" name="stadt" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label class="form-label">Email</label>
+          <input
+            [(ngModel)]="user.email"
+            type="text"
+            name="email"
+            class="form-control"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col form-group">
+          <label class="form-label">Password</label>
+          <input
+            [(ngModel)]="user.password"
+            [type]="showPassword ? 'text' : 'password'"
+            name="password"
+            class="form-control"
+          />
+          <span class="col-1 btn btn-primary" (click)="showHidePassword()">
+            <div *ngIf="showPassword; else elseBlock">
+              <i class="bi bi-eye-slash"></i>
+            </div>
+            <ng-template #elseBlock>
+              <i class="bi bi-eye"></i>
+            </ng-template>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <img
+        class="card-img-top"
+        src="./assets/images/villa.jpg"
+        alt="User image"
+      />
+    </div>
+  </div>
+</div>

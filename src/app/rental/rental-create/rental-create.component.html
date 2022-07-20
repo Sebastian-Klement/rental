@@ -1,41 +1,66 @@
-<p>create-room works!</p>
-
 <div class="card">
   <div class="card-header">
-    <h5>Create new Room</h5>
+    <div class="h5">Erstelle eine neue Leihe</div>
   </div>
   <div class="card-body">
     <form>
       <div class="row">
         <div class="col">
-          <!-- Name -->
-          <label class="form-label">Name der Unterkunft</label>
+          <!-- Bezeichnung -->
+          <label class="form-label">Bezeichnung</label>
           <input
             [(ngModel)]="rental.title"
             type="text"
-            name="name"
+            name="bezeichnung"
             class="form-control"
           />
         </div>
         <div class="col-2">
           <!-- ID -->
-          <label class="form-label">ID der Unterkunft</label>
+          <label class="form-label">ID</label>
           <input
             [(ngModel)]="rental.id"
             type="text"
-            name="roomId"
+            name="id"
             class="form-control"
           />
         </div>
       </div>
+
+      <!-- <div class="col">
+         Kategorie
+        <label class="form-label">Kategorie</label>
+        <select
+          [(ngModel)]="selectedCategory"
+          type="text"
+          name="kategorie"
+          class="form-control"
+        >
+          <option *ngFor="let category of categories" [value]="category.id">
+            {{ category.name }}
+          </option>
+        </select>
+      </div> -->
+
+      <!-- <div class="col">
+         Hersteller --
+        <label class="form-label">Hersteller</label>
+        <input
+          [(ngModel)]="rental.title"
+          type="text"
+          name="hersteller"
+          class="form-control"
+        />
+      </div> -->
+
       <div class="row">
         <div class="col">
-          <!-- Adresse -->
-          <label class="form-label">Adresse der Unterkunft</label>
+          <!-- Lokation -->
+          <label class="form-label">Lokation</label>
           <input
             [(ngModel)]="rental.city"
             type="text"
-            name="location"
+            name="lokation"
             class="form-control"
           />
         </div>
@@ -43,21 +68,21 @@
       <!-- Beschreibung -->
       <div class="row">
         <div class="col">
-          <label class="form-label">Beschreibung der Unterkunft</label>
-          <input type="text" name="description" class="form-control" />
+          <label class="form-label">Beschreibung des Artikels</label>
+          <input type="text" name="beschreibung" class="form-control" />
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <!-- Benefits -->
-          <label class="form-label">Benefits der Unterkunft</label>
-          <input type="text" name="benefits" class="form-control" />
+          <!-- Zubehör -->
+          <label class="form-label">Zubehör</label>
+          <input type="text" name="zubehör" class="form-control" />
         </div>
       </div>
       <div class="row">
         <div class="col">
           <!-- Bewertung -->
-          <label class="form-label">Bewertung der Unterkunft</label>
+          <label class="form-label">Bewertung</label>
           <input type="text" name="bewertung" class="form-control" />
         </div>
       </div>
@@ -84,9 +109,9 @@
       </div>
       <div class="row">
         <div class="col">
-          <!-- Gstgeber -->
-          <label class="form-label">Beschreibung Gastgeber</label>
-          <input type="text" name="gastgeber" class="form-control" />
+          <!-- Besitzer -->
+          <label class="form-label">&Uuml;ber den Besitzer</label>
+          <input type="text" name="besitzer" class="form-control" />
         </div>
       </div>
       <div class="row">
@@ -100,7 +125,7 @@
       <div class="row">
         <div class="col">
           <!-- Good to know -->
-          <label class="form-label">Good to know der Unterkunft</label>
+          <label class="form-label">Good to know</label>
           <input type="text" name="dinge" class="form-control" />
         </div>
       </div>

@@ -10,6 +10,8 @@ export class RentalService {
   rentalUrl: string = '/api/rental';
   response: any;
 
+  categoryName: string = '';
+
   constructor(private httpClient: HttpClient) {}
 
   getRentals(): Observable<IRental[]> {
@@ -18,7 +20,13 @@ export class RentalService {
 
   getRentalById(id: number): Observable<IRental> {
     return (this.response = this.httpClient.get<IRental>(
-      this.rentalUrl + '/' + id
+      `${this.rentalUrl}/${id}`
+    ));
+  }
+
+  getRentalByCategory(): Observable<IRental[]> {
+    return (this.response = this.httpClient.get<IRental[]>(
+      `${this.rentalUrl}/?category=${this.categoryName}`
     ));
   }
 

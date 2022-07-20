@@ -2,16 +2,13 @@
   {{ notify }}
 </div>
 
-<div class="h-100 p-5 bg-dark text-white rounded-3 text-center">
+<!-- <div class="h-100 p-5 bg-dark text-white rounded-3 text-center">
   <h1 class="display-5 fw-bold">booking-app</h1>
-</div>
-
-<app-favourite-places></app-favourite-places>
-<hr />
+</div> -->
 
 <div
   id="carouselExampleCaptions"
-  class="carousel slide"
+  class="carousel slide pt-4"
   data-bs-ride="carousel"
 >
   <div class="carousel-indicators">
@@ -115,8 +112,8 @@
   </p>
 </div>
 
-<!-- <div class="container" *ngFor="let room of rooms">
-  <img [src]="room.url" />
-</div> -->
+<hr />
 
-<app-rental-list></app-rental-list>
+<app-favourite-places (eventChange)="onChange($event)"></app-favourite-places>
+
+<app-rental-list [event]="event"> </app-rental-list>

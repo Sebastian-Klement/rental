@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { IUser } from './user';
+import { IBooking } from '../booking/booking.model';
+import { IUser } from './user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ import { IUser } from './user';
 export class UserService {
   user: IUser[] = [];
   userUrL: string = '/api/user';
+  userBookingUrl: string = '/api/bookings/user';
   response: any;
 
   constructor(private httpClient: HttpClient) {}
@@ -22,6 +24,12 @@ export class UserService {
   getUserById(id: number): Observable<IUser> {
     return (this.response = this.httpClient.get<IUser>(
       this.userUrL + '/' + id
+    ));
+  }
+
+  getUserBooking(): Observable<IBooking[]> {
+    return (this.response = this.httpClient.get<IBooking[]>(
+      this.userBookingUrl
     ));
   }
 

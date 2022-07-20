@@ -1,0 +1,20 @@
+.heart{
+  position: relative;
+}
+
+.form-check {
+  position: absolute;
+  z-index: 5;
+}
+
+input {
+  display: none;
+}
+
+input:checked ~ label {
+  color: red;
+}
+
+label {
+  font-size: 2em;
+}

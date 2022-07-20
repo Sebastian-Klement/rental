@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { IRental } from '../rental/rental.model';
 import { RentalService } from '../rental/rental.service';
 
@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   rental: IRental[] = [];
 
   constructor(
-    private router: Router,
     private activatedRoute: ActivatedRoute,
     private rentalService: RentalService
   ) {}
@@ -29,5 +28,11 @@ export class HomeComponent implements OnInit {
         this.notify = 'You have been successfully loggedin. Welcome home';
       }
     });
+  }
+
+  event: any;
+
+  onChange(event: Event) {
+    this.event = event;
   }
 }
